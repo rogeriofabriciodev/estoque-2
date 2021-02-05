@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label for="inputCategoryCreate">Categoria</label>
+    <select id="inputCategoryCreate" name="category" class="form-control"> 
+      <option value=""> -- selecione -- </option>
+      <% data.forEach(function(option) { %>
+      <option value="<%= option.id %>"><%= option.name %></option>
+      <% }); %>
+    </select>
+  </div>

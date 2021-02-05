@@ -52,7 +52,13 @@ module.exports = {
       },
       {
         text: "Produtos",
-        href: "/admin/menus",
+        href: "/admin/products",
+        icon: "cubes",
+        active: false
+      },
+      {
+        text: "Categorias",
+        href: "/admin/categories",
         icon: "cubes",
         active: false
       },
