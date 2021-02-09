@@ -27,8 +27,14 @@ module.exports = {
 
       let query, queryPhoto = '', params = [
         fields.name,
+        fields.model,
+        fields.productCode,
+        fields.brand,
+        fields.provider,
         fields.description,
+        fields.profitMargin,
         fields.category,
+        fields.subCategory,
         fields.price
       ];
 
@@ -47,8 +53,14 @@ module.exports = {
         query = `
           UPDATE tb_products
           SET name = ?,
+              model = ?,
+              productCode = ?,
+              brand = ?,
+              provider = ?,
               description = ?,
+              profitMargin = ?,
               category = ?,
+              subCategory = ?,
               price = ?
               ${queryPhoto}
           WHERE id = ?
@@ -61,8 +73,8 @@ module.exports = {
         }
 
         query = `
-          INSERT INTO tb_products(name, description, category, price, photo)
-          VALUES(?, ?, ?, ?, ?)
+          INSERT INTO tb_products(name, model, productCode, brand, provider, description, profitMargin, category, subCategory, price, photo)
+          VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `;
 
       }
