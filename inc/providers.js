@@ -2,11 +2,11 @@ let conn = require('./db');
 
 module.exports = {
 
-  getCategories(){
+  getProviders(){
     return new Promise((resolve, reject) => {
 
       conn.query(`
-        SELECT * FROM tb_categories ORDER BY title
+        SELECT * FROM tb_providers ORDER BY name
         `, (err, results) => {
           if (err) {
             reject(err);
@@ -23,15 +23,15 @@ module.exports = {
     return new Promise((resolve, reject) => {
 
       let query, params = [
-        fields.title
+        fields.name
       ];
 
       if (parseInt(fields.id) > 0 ) {
 
         query = `
-          UPDATE tb_categories
+          UPDATE tb_providers
           SET
-            title = ?
+            name = ?
           WHERE id = ?
         `;
         params.push(fields.id);
@@ -39,7 +39,7 @@ module.exports = {
       } else {
 
         query = `
-          INSERT INTO tb_categories (title)
+          INSERT INTO tb_providers (name)
           VALUES(?)
           `; 
       }
@@ -64,7 +64,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
 
       conn.query(`
-        DELETE FROM tb_categories WHERE id = ? 
+        DELETE FROM tb_providers WHERE id = ? 
       `, [
         id
       ], (err, results) => {

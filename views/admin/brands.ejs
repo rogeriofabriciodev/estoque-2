@@ -5,11 +5,11 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          Categorias
+          Marcas
         </h1>
         <ol class="breadcrumb">
           <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-          <li class="active">Categorias</li>
+          <li class="active">Marcas</li>
         </ol>
       </section>
 
@@ -38,7 +38,7 @@
                 <% data.forEach(row => { %>
                 <tr data-row="<%= JSON.stringify(row) %>">
                   <td><%= row.id %></td>
-                  <td><%= row.title %></td>
+                  <td><%= row.name %></td>
                   <td><button type="button" class="btn btn-xs btn-info btn-update" ><i
                         class="fa fa-pencil"></i> Editar</button>&nbsp;<button type="button" class="btn btn-xs btn-danger btn-delete"><i
                         class="fa fa-trash"></i> Excluir</button></td>
@@ -63,12 +63,12 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h4 class="modal-title">Nova Categoria</h4>
+              <h4 class="modal-title">Nova Marca</h4>
             </div>
             <div class="modal-body">
               <div class="form-group">
-                <label for="inputTitleCreate">Nome</label>
-                <input type="text" class="form-control" id="inputTitleCreate" name="title">
+                <label for="inputNameCreate">Nome</label>
+                <input type="text" class="form-control" id="inputNameCreate" name="name">
               </div>
             </div>
             <div class="modal-footer">
@@ -91,12 +91,12 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h4 class="modal-title">Editar Categoria</h4>
+              <h4 class="modal-title">Editar Marca</h4>
             </div>
             <div class="modal-body">
               <div class="form-group">
-                <label for="inputTitleUpdate">Título</label>
-                <input type="text" class="form-control" id="inputTitleUpdate" name="title">
+                <label for="inputNameUpdate">Nome</label>
+                <input type="text" class="form-control" id="inputNameUpdate" name="name">
               </div>
             </div>
             <div class="modal-footer">
@@ -119,8 +119,8 @@
 
 new HcodeGrid({
 
-  deleteUrl: '/admin/categories/${data.id}',
-  deleteMsg: 'Você esta preste a apagar este registro ${data.title}.',
+  deleteUrl: '/admin/brands/${data.id}',
+  deleteMsg: 'Você esta preste a apagar este registro ${data.name}.',
   onUpdateLoad: (form, name, data) => {
 
     let input = form.querySelector(`[name=${name}]`);

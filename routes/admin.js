@@ -5,6 +5,8 @@ var contacts = require('./../inc/contacts');
 var menus = require('./../inc/menus');
 var categories = require('./../inc/categories');
 var products = require('./../inc/products');
+var brands = require('./../inc/brands');
+var providers = require('./../inc/providers');
 var reservations = require('./../inc/reservations');
 var emails = require('./../inc/emails');
 var moment = require('moment');
@@ -252,7 +254,7 @@ router.get("/categories", function(req, res, next){
 
 router.post("/categories", function(req, res, next){
 
-  categories.save(req.fields).then(results => {
+  categories.save(req.fields, req.files).then(results => {
 
     res.send(results);
 
@@ -269,6 +271,96 @@ router.post("/categories", function(req, res, next){
 router.delete("/categories/:id", function(req, res, next) {
 
   categories.delete(req.params.id).then(results => {
+
+    res.send(results);
+
+  }).catch(err => {
+
+    res.send(err);
+
+  });
+
+});
+
+
+
+router.get("/brands", function(req, res, next){
+
+  brands.getBrands().then(data => {
+
+    res.render("admin/brands", admin.getParams(req, {
+      data
+    }));
+
+  });
+  
+});
+
+
+router.post("/brands", function(req, res, next){
+
+  brands.save(req.fields, req.files).then(results => {
+
+    res.send(results);
+
+  }).catch(err => {
+
+    res.send(err);
+
+  });
+
+});
+
+
+
+router.delete("/brands/:id", function(req, res, next) {
+
+  brands.delete(req.params.id).then(results => {
+
+    res.send(results);
+
+  }).catch(err => {
+
+    res.send(err);
+
+  });
+
+});
+
+
+
+router.get("/providers", function(req, res, next){
+
+  providers.getProviders().then(data => {
+
+    res.render("admin/providers", admin.getParams(req, {
+      data
+    }));
+
+  });
+  
+});
+
+
+router.post("/providers", function(req, res, next){
+
+  providers.save(req.fields, req.files).then(results => {
+
+    res.send(results);
+
+  }).catch(err => {
+
+    res.send(err);
+
+  });
+
+});
+
+
+
+router.delete("/providers/:id", function(req, res, next) {
+
+  providers.delete(req.params.id).then(results => {
 
     res.send(results);
 

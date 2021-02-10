@@ -62,12 +62,18 @@ module.exports = {
         icon: "cubes",
         active: false
       },
-      // {
-      //   text: "Reservas",
-      //   href: "/admin/reservations",
-      //   icon: "calendar-check-o",
-      //   active: false
-      // },
+      {
+        text: "Marcas",
+        href: "/admin/brands",
+        icon: "calendar-check-o",
+        active: false
+      },
+      {
+        text: "Fornecedores",
+        href: "/admin/providers",
+        icon: "calendar-check-o",
+        active: false
+      },
       // {
       //   text: "Contatos",
       //   href: "/admin/contacts",
