@@ -11,15 +11,15 @@ module.exports = {
           (SELECT
               COUNT(*)
             FROM
-              tb_contacts) AS nrcontacts,
+              tb_products) AS nrproducts,
           (SELECT
               COUNT(*)
             FROM
-              tb_menus) AS nrmenus,
+              tb_providers) AS nrproviders,
           (SELECT
               COUNT(*)
             FROM
-              tb_reservations) AS nrreservations,
+              tb_brands) AS nrbrands,
           (SELECT
               COUNT(*)
             FROM
@@ -53,25 +53,25 @@ module.exports = {
       {
         text: "Produtos",
         href: "/admin/products",
-        icon: "cubes",
+        icon: "codepen",
         active: false
       },
       {
         text: "Categorias",
         href: "/admin/categories",
-        icon: "cubes",
+        icon: "calendar-check-o",
         active: false
       },
       {
         text: "Marcas",
         href: "/admin/brands",
-        icon: "calendar-check-o",
+        icon: "cubes",
         active: false
       },
       {
         text: "Fornecedores",
         href: "/admin/providers",
-        icon: "calendar-check-o",
+        icon: "gg",
         active: false
       },
       // {
