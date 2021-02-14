@@ -4,6 +4,7 @@ var admin = require('./../inc/admin');
 var contacts = require('./../inc/contacts');
 var menus = require('./../inc/menus');
 var categories = require('./../inc/categories');
+var subcategories = require('./../inc/subcategories');
 var products = require('./../inc/products');
 var brands = require('./../inc/brands');
 var providers = require('./../inc/providers');
@@ -271,6 +272,56 @@ router.post("/categories", function(req, res, next){
 router.delete("/categories/:id", function(req, res, next) {
 
   categories.delete(req.params.id).then(results => {
+
+    res.send(results);
+
+  }).catch(err => {
+
+    res.send(err);
+
+  });
+
+});
+
+
+
+router.get("/subcategories", function(req, res, next){
+
+  categories.getCategories().then(dataCategory => {
+
+    subcategories.getSubcategories().then(data => {
+
+      res.render("admin/subcategories", admin.getParams(req, {
+        dataCategory,
+        data
+      }));
+
+    });
+
+  });
+  
+});
+
+
+router.post("/subcategories", function(req, res, next){
+
+  subcategories.save(req.fields, req.files).then(results => {
+    
+    res.send(results);
+
+  }).catch(err => {
+
+    res.send(err);
+
+  });
+
+});
+
+
+
+router.delete("/subcategories/:id", function(req, res, next) {
+
+  subcategories.delete(req.params.id).then(results => {
 
     res.send(results);
 

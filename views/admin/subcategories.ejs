@@ -5,11 +5,11 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          Categorias
+          Sub-Categorias
         </h1>
         <ol class="breadcrumb">
           <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-          <li class="active">Categorias</li>
+          <li class="active">Sub-Categorias</li>
         </ol>
       </section>
 
@@ -63,9 +63,18 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h4 class="modal-title">Nova Categoria</h4>
+              <h4 class="modal-title">Nova Sub-Categoria</h4>
             </div>
             <div class="modal-body">
+              <div class="form-group">
+                <label for="inputCategoryCreate">Categoria</label>
+                <select id="inputCategoryCreate" name="idCategory" class="form-control"> 
+                  <option value=""> -- selecione -- </option>
+                  <% dataCategory.forEach(rowCategory => { %>
+                  <option value="<%= rowCategory.id %>"><%= rowCategory.title %></option>
+                  <% }) %>
+                </select>
+              </div> 
               <div class="form-group">
                 <label for="inputTitleCreate">Título</label>
                 <input type="text" class="form-control" id="inputTitleCreate" name="title">
@@ -91,9 +100,18 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h4 class="modal-title">Editar Categoria</h4>
+              <h4 class="modal-title">Editar Sub-Categoria</h4>
             </div>
             <div class="modal-body">
+              <div class="form-group">
+                <label for="inputCategoryCreate">Categoria</label>
+                <select id="inputCategoryCreate" name="idCategory" class="form-control"> 
+                  <option value=""> -- selecione -- </option>
+                  <% dataCategory.forEach(rowCategory => { %>
+                  <option value="<%= rowCategory.id %>"><%= rowCategory.title %></option>
+                  <% }) %>
+                </select>
+              </div> 
               <div class="form-group">
                 <label for="inputTitleUpdate">Título</label>
                 <input type="text" class="form-control" id="inputTitleUpdate" name="title">
@@ -119,7 +137,7 @@
 
 new HcodeGrid({
 
-  deleteUrl: '/admin/categories/${data.id}',
+  deleteUrl: '/admin/subcategories/${data.id}',
   deleteMsg: 'Você esta preste a apagar este registro ${data.title}.',
   onUpdateLoad: (form, name, data) => {
 

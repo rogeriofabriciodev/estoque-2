@@ -63,6 +63,12 @@ module.exports = {
         active: false
       },
       {
+        text: "Sub-Categorias",
+        href: "/admin/subcategories",
+        icon: "calendar-check-o",
+        active: false
+      },
+      {
         text: "Marcas",
         href: "/admin/brands",
         icon: "cubes",
