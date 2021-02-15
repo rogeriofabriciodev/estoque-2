@@ -87,12 +87,22 @@
               </div>
               <div class="form-group">
                 <label for="inputBrandCreate">Fabricante</label>
-                <input type="text" class="form-control" id="inputBrandCreate" name="brand">
-              </div>
+                <select id="inputBrandCreate" name="brand" class="form-control"> 
+                  <option value=""> -- selecione -- </option>
+                  <% dataBrand.forEach(rowBrand => { %>
+                  <option value="<%= rowBrand.name %>"><%= rowBrand.name %></option>
+                  <% }) %>
+                </select>
+              </div> 
               <div class="form-group">
                 <label for="inputProviderCreate">Fornecedor</label>
-                <input type="text" class="form-control" id="inputProviderCreate" name="provider">
-              </div>
+                <select id="inputProviderCreate" name="provider" class="form-control"> 
+                  <option value=""> -- selecione -- </option>
+                  <% dataProvider.forEach(rowProvider => { %>
+                  <option value="<%= rowProvider.name %>"><%= rowProvider.name %></option>
+                  <% }) %>
+                </select>
+              </div> 
               <div class="form-group">
                 <label for="inputDescriptionCreate">Descrição</label>
                 <textarea class="form-control" id="inputDescriptionCreate" name="description"></textarea>
@@ -103,20 +113,23 @@
               </div>
               <div class="form-group">
                 <label for="inputCategoryCreate">Categoria</label>
-                <input type="text" class="form-control" id="inputCategoryCreate" name="category">
-              </div>
-              <div class="form-group">
-                <label for="inputSubCategoryCreate">Sub-Categoria</label>
-                <input type="text" class="form-control" id="inputSubCategoryCreate" name="subCategory">
-              </div>
-              <!-- <%- include('inc/selectCategories'); -%> -->
-              <!-- <div class="form-group">
-                <label for="inputCategoryCreate">Categoria</label>
                 <select id="inputCategoryCreate" name="category" class="form-control"> 
                   <option value=""> -- selecione -- </option>
-                  <option value="Receiver">Receiver</option>
+                  <% dataCategory.forEach(rowCategory => { %>
+                  <option value="<%= rowCategory.title %>"><%= rowCategory.title %></option>
+                  <% }) %>
                 </select>
-              </div> -->
+              </div> 
+              <div class="form-group">
+                <label for="inputSubCategoryCreate">Sub-Categoria</label>
+                <select id="inputSubCategoryCreate" name="subCategory" class="form-control"> 
+                  <option value=""> -- selecione -- </option>
+                  <% dataSubcategory.forEach(rowSubcategory => { %>
+                  <option value="<%= rowSubcategory.title %>"><%= rowSubcategory.title %></option>
+                  <% }) %>
+                </select>
+              </div> 
+              <!-- <%- include('inc/selectCategories'); -%> -->
               <div class="form-group">
                 <label for="inputPriceCreate">Preço</label>
                 <input type="number" class="form-control" id="inputPriceCreate" name="price">
@@ -163,9 +176,14 @@
                 <input type="text" class="form-control" id="inputProductCodeUpdate" name="productCode">
               </div>
               <div class="form-group">
-                <label for="inputBrandUpdate">Fabricante</label>
-                <input type="text" class="form-control" id="inputBrandUpdate" name="brand">
-              </div>
+                <label for="inputBrandCreate">Fabricante</label>
+                <select id="inputBrandCreate" name="brand" class="form-control"> 
+                  <option value=""> -- selecione -- </option>
+                  <% dataBrand.forEach(rowBrand => { %>
+                  <option value="<%= rowBrand.name %>"><%= rowBrand.name %></option>
+                  <% }) %>
+                </select>
+              </div> 
               <div class="form-group">
                 <label for="inputProviderUpdate">Fornecedor</label>
                 <input type="text" class="form-control" id="inputProviderUpdate" name="provider">

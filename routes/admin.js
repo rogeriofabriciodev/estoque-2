@@ -198,11 +198,31 @@ router.delete("/menus/:id", function(req, res, next) {
 
 router.get("/products", function(req, res, next){
 
-  products.getProducts().then(data => {
+  brands.getBrands().then(dataBrand => {
 
-    res.render("admin/products", admin.getParams(req, {
-      data
-    }));
+    providers.getProviders().then(dataProvider => {
+
+      categories.getCategories().then(dataCategory => {
+
+        subcategories.getSubcategories().then(dataSubcategory => {
+
+          products.getProducts().then(data => {
+
+            res.render("admin/products", admin.getParams(req, {
+              dataBrand,
+              dataProvider,
+              dataCategory,
+              dataSubcategory,
+              data
+            }));
+
+          });
+
+        });
+
+      });
+
+    });
 
   });
   
