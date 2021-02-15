@@ -103,6 +103,7 @@ DROP TABLE IF EXISTS `tb_subcategories`;
 CREATE TABLE `tb_subcategories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(128) NOT NULL,
+  `category` varchar(128) NOT NULL,
   `register` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

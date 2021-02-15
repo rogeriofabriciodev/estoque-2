@@ -24,16 +24,16 @@ module.exports = {
 
       let query, params = [
         fields.title,
-        fields.idCategory
+        fields.category
       ];
-      console.log("aqui: ", fields.idCategory);
+      console.log("aqui: ", fields.category);
       if (parseInt(fields.id) > 0 ) {
 
         query = `
           UPDATE tb_subcategories
           SET
             title = ?,
-            id_category = ?
+            category = ?
           WHERE id = ?
         `;
         params.push(fields.id);
@@ -41,7 +41,7 @@ module.exports = {
       } else {
 
         query = `
-          INSERT INTO tb_subcategories (title, id_category)
+          INSERT INTO tb_subcategories (title, category)
           VALUES(?, ?)
           `; 
       }

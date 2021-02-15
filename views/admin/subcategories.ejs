@@ -68,10 +68,10 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="inputCategoryCreate">Categoria</label>
-                <select id="inputCategoryCreate" name="idCategory" class="form-control"> 
+                <select id="inputCategoryCreate" name="category" class="form-control"> 
                   <option value=""> -- selecione -- </option>
                   <% dataCategory.forEach(rowCategory => { %>
-                  <option value="<%= rowCategory.id %>"><%= rowCategory.title %></option>
+                  <option value="<%= rowCategory.title %>"><%= rowCategory.title %></option>
                   <% }) %>
                 </select>
               </div> 
@@ -105,10 +105,10 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="inputCategoryCreate">Categoria</label>
-                <select id="inputCategoryCreate" name="idCategory" class="form-control"> 
+                <select id="inputCategoryCreate" name="category" class="form-control"> 
                   <option value=""> -- selecione -- </option>
                   <% dataCategory.forEach(rowCategory => { %>
-                  <option value="<%= rowCategory.id %>"><%= rowCategory.title %></option>
+                  <option value="<%= rowCategory.title %>"><%= rowCategory.title %></option>
                   <% }) %>
                 </select>
               </div> 
