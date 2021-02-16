@@ -40,7 +40,7 @@
                 <tr data-row="<%= JSON.stringify(row) %>">
                   <td><%= row.id %></td>
                   <td><%= row.title %></td>
-                  <td><%= row.category %></td>
+                  <td><%= row.id_category %></td>
                   <td><button type="button" class="btn btn-xs btn-info btn-update" ><i
                         class="fa fa-pencil"></i> Editar</button>&nbsp;<button type="button" class="btn btn-xs btn-danger btn-delete"><i
                         class="fa fa-trash"></i> Excluir</button></td>
@@ -73,7 +73,7 @@
                 <select id="inputCategoryCreate" name="category" class="form-control"> 
                   <option value=""> -- selecione -- </option>
                   <% dataCategory.forEach(rowCategory => { %>
-                  <option value="<%= rowCategory.title %>"><%= rowCategory.title %></option>
+                  <option value="<%= rowCategory.id %>"><%= rowCategory.title %></option>
                   <% }) %>
                 </select>
               </div> 
@@ -110,7 +110,7 @@
                 <select id="inputCategoryCreate" name="category" class="form-control"> 
                   <option value=""> -- selecione -- </option>
                   <% dataCategory.forEach(rowCategory => { %>
-                  <option value="<%= rowCategory.title %>"><%= rowCategory.title %></option>
+                  <option value="<%= rowCategory.id %>"><%= rowCategory.title %></option>
                   <% }) %>
                 </select>
               </div> 

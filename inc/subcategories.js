@@ -6,7 +6,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
 
       conn.query(`
-        SELECT * FROM tb_subcategories ORDER BY category
+        SELECT * FROM tb_subcategories ORDER BY title
         `, (err, results) => {
           if (err) {
             reject(err);
@@ -33,7 +33,7 @@ module.exports = {
           UPDATE tb_subcategories
           SET
             title = ?,
-            category = ?
+            id_category = ?
           WHERE id = ?
         `;
         params.push(fields.id);
@@ -41,7 +41,7 @@ module.exports = {
       } else {
 
         query = `
-          INSERT INTO tb_subcategories (title, category)
+          INSERT INTO tb_subcategories (title, id_category)
           VALUES(?, ?)
           `; 
       }
