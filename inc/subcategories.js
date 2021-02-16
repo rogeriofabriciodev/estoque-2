@@ -5,8 +5,10 @@ module.exports = {
   getSubcategories(){
     return new Promise((resolve, reject) => {
 
-      conn.query(`
-        SELECT * FROM tb_subcategories ORDER BY title
+        conn.query(`
+          SELECT tb_subcategories.id, tb_subcategories.title, tb_categories.title as category
+          FROM tb_subcategories INNER JOIN tb_categories 
+          ON (tb_categories.id = tb_subcategories.id_category)
         `, (err, results) => {
           if (err) {
             reject(err);
@@ -14,6 +16,7 @@ module.exports = {
             resolve(results);
           }
       });
+
     });
   },
 
