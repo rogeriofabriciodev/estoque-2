@@ -6,7 +6,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
 
       conn.query(`
-        SELECT * FROM tb_subcategories ORDER BY title
+        SELECT * FROM tb_subcategories ORDER BY category
         `, (err, results) => {
           if (err) {
             reject(err);

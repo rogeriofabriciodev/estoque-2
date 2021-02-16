@@ -1,4 +1,4 @@
--- Adminer 4.7.9 MySQL dump
+-- Adminer 4.7.8 MySQL dump
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
@@ -14,22 +14,34 @@ CREATE TABLE `tb_brands` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `tb_brands` (`id`, `name`, `register`) VALUES
-(4,	'Absolute',	'2021-02-10 01:07:54'),
-(5,	'Savant',	'2021-02-10 01:08:05'),
-(6,	'Home Manager',	'2021-02-10 01:08:12');
+(1,	'Marantz',	'2021-02-16 20:22:30'),
+(2,	'Savagem',	'2021-02-16 20:22:50'),
+(3,	'Ubiquiti',	'2021-02-16 20:23:03'),
+(4,	'Hikvision',	'2021-02-16 20:25:03'),
+(5,	'Legrand',	'2021-02-16 20:25:13'),
+(6,	'TP-Link',	'2021-02-16 20:25:25'),
+(7,	'Home Manager',	'2021-02-16 20:25:39'),
+(8,	'Absolute',	'2021-02-16 20:25:57'),
+(9,	'Savant',	'2021-02-16 20:26:05'),
+(10,	'Focal',	'2021-02-16 20:26:15');
 
 DROP TABLE IF EXISTS `tb_categories`;
 CREATE TABLE `tb_categories` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `title` varchar(128) NOT NULL,
   `register` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `tb_categories` (`id`, `title`, `register`) VALUES
-(4,	'Amplificador',	'2021-02-09 23:50:48'),
-(5,	'Extensor',	'2021-02-09 23:51:03'),
-(6,	'Splitter',	'2021-02-09 23:51:16');
+(1,	'Amplificadores',	'2021-02-16 20:30:30'),
+(2,	'Extensores',	'2021-02-16 20:33:55'),
+(3,	'Vídeo',	'2021-02-16 20:35:57'),
+(4,	'Audio Tools',	'2021-02-16 20:38:56'),
+(5,	'Rede',	'2021-02-16 20:40:03'),
+(6,	'Iluminação',	'2021-02-16 21:02:42'),
+(7,	'Host',	'2021-02-16 21:04:03'),
+(8,	'Caixas Acústica',	'2021-02-16 21:09:57');
 
 DROP TABLE IF EXISTS `tb_contacts`;
 CREATE TABLE `tb_contacts` (
@@ -72,13 +84,13 @@ CREATE TABLE `tb_products` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL,
   `model` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `productCode` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `productCode` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `brand` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `provider` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `description` varchar(512) NOT NULL,
-  `profitMargin` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `category` varchar(128) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL,
-  `subCategory` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `profitMargin` decimal(10,2) NOT NULL,
+  `category` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `subCategory` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `photo` varchar(256) NOT NULL,
   `register` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -86,8 +98,13 @@ CREATE TABLE `tb_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `tb_products` (`id`, `name`, `model`, `productCode`, `brand`, `provider`, `description`, `profitMargin`, `category`, `subCategory`, `price`, `photo`, `register`) VALUES
-(4,	'Receiver 2 Zonas Slim',	'Receiver Slim 7.2 AVR1710S',	'REC72MAR1710S',	'Marants',	'Disac',	'Receiver 2 zonas, 2 subwoofers, 4 inputs analógicos, 6 inputs HDMI, 2 input optico',	'2.5',	'Amplificador',	'Receiver',	6750.00,	'images/upload_e246c898354ade87ffbcdd0b07983a5a.jpeg',	'2021-02-09 22:07:32'),
-(5,	'HDBaseT TX',	'NDS-317 TX',	'HDBT371TX',	'Absolute',	'Audiogene',	'Extensor de vídeo e IR FULLHD, até 30 metros de distância;',	'2.5',	'Extensores',	'Vídeo',	900.00,	'images/upload_1cd017e671dae0f396d81c68a09a6e1b.jpg',	'2021-02-09 22:11:24');
+(1,	'Receiver 7.2',	'Receiver Slim Multicanal 7.2 NR1710',	'REC72SLMAR',	'Marantz',	'Disac Comercial LTDA',	'A / V de rede de 7.2 canais Marantz NR1710 . Ele fornece até 50W de energia por canal a 8 ohms e possui suporte embutido para Bluetooth, AirPlay 2 e HEOS, permitindo transmitir sem fio músicas de fontes compatíveis, como smartphones e tablets.',	2.50,	'Amplificadores',	'Receiver',	6875.00,	'images/upload_ffd9ae4fdda3097203a90c8ec03121f2.jpg',	'2021-02-16 20:50:50'),
+(2,	'Switch Gigabit',	'Switch 24 portas Gigabit TL-SG1024D BR',	'SWT24PG',	'TP-Link',	'Central dos Cabos Com de Mat Eletr e Teleinformatica LTDA',	'24 portas são RJ-45 Gigabit e podem oferecer transferências de grandes arquivos além de serem compatíveis com dispositivos Ethernet 10Mbps e 100Mbps. Oferece a estrutura de switch sem bloqueio, o TL-SG1024D envia e filtra pacotes em velocidade cabeada de transmissão máxima. Com frame Jumbo de10KB, o desempenho das transferências arquivos grandes é melhorado significativamente. O padrão de controle de fluxo IEEE 802.3x para Full Duplex e contrapressão para Half Duplex.',	2.50,	'Rede',	'Switch',	890.00,	'images/upload_2294126bf7ded83d60a24cccfaeebe64.jpg',	'2021-02-16 20:56:09'),
+(3,	'Access Point',	'Unifi AC UAP-AC-LITE-BR ',	'APUBQIC',	'Ubiquiti',	'Dicomp Distribuidora de Eletronicos LTDA',	'Antena Ubiquiti Ap Unifi Uap-Ac Lite BR Mimo 2.4/5.0GHZ 300/867MBPS Bivolt',	2.50,	'Rede',	'Access Point',	640.00,	'images/upload_9d4d586b5336cccd63fe12df7ff0b18b.jpg',	'2021-02-16 21:01:01'),
+(4,	'Smart Center',	'Smart Center ',	'SCHM',	'Home Manager',	'Home Manager - Pianta & Eschner Automação LDTA - ME',	'',	2.50,	'Host',	'Host',	1990.00,	'images/upload_ca3af922f58c7fb7875b70fffd22d02b.jpg',	'2021-02-16 21:05:33'),
+(5,	'Módulo 12 On/Off - 4 Dimmers',	'Home One',	'HOHM16',	'Home Manager',	'Home Manager - Pianta & Eschner Automação LDTA - ME',	'Módulo de iluminação com 12 relés e 4 dimeres',	2.50,	'Iluminação',	'Módulo Relé',	1390.00,	'images/upload_0220cfbfc07a0306d7cb27f8aff090fa.jpg',	'2021-02-16 21:07:28'),
+(6,	'SIPA1 + SMS',	'HTS-SIPA1SM - 1 IP Audio',	'SIPA1SMS',	'Savant',	'Audiogene Com Imp Exp de Produtos Eletronicos LTDA',	'',	2.50,	'Host',	'Host',	2169.00,	'images/upload_4ca42fd0122058676c35a4e43d361350.jpg',	'2021-02-16 21:09:42'),
+(7,	'Caixa Acústica SIG-R4',	'SIG-R4 90W',	'SIGR4',	'Absolute',	'Audiogene Com Imp Exp de Produtos Eletronicos LTDA',	'',	2.50,	'Caixas Acústica',	'In-Celing',	283.00,	'images/upload_fc0b61836612cfeb2984ceba9ae83671.jpg',	'2021-02-16 21:12:31');
 
 DROP TABLE IF EXISTS `tb_providers`;
 CREATE TABLE `tb_providers` (
@@ -98,8 +115,16 @@ CREATE TABLE `tb_providers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `tb_providers` (`id`, `name`, `register`) VALUES
-(1,	'Audiogene',	'2021-02-10 01:24:04'),
-(2,	'Central dos Cabos',	'2021-02-10 01:24:16');
+(1,	'Disac Comercial LTDA',	'2021-02-16 15:14:55'),
+(2,	'Discabos Com Imp Exp Acess Eletr LTDA',	'2021-02-16 15:15:28'),
+(3,	'Central dos Cabos Com de Mat Eletr e Teleinformatica LTDA',	'2021-02-16 15:16:07'),
+(4,	'G R Savage Sistemas Eletronicos LTDA - EPP',	'2021-02-16 15:16:31'),
+(5,	'Torre Telecomunicações e Sistemas LTDA',	'2021-02-16 15:16:58'),
+(6,	'Dicomp Distribuidora de Eletronicos LTDA',	'2021-02-16 15:17:27'),
+(7,	'Discom Tecnologia em Sistemas de Segurança LTDA',	'2021-02-16 15:17:49'),
+(8,	'Legrand - GL Eletro-Eletronicos LTDA',	'2021-02-16 15:18:12'),
+(9,	'Home Manager - Pianta & Eschner Automação LDTA - ME',	'2021-02-16 15:18:48'),
+(10,	'Audiogene Com Imp Exp de Produtos Eletronicos LTDA',	'2021-02-16 15:19:19');
 
 DROP TABLE IF EXISTS `tb_reservations`;
 CREATE TABLE `tb_reservations` (
@@ -114,6 +139,35 @@ CREATE TABLE `tb_reservations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+DROP TABLE IF EXISTS `tb_subcategories`;
+CREATE TABLE `tb_subcategories` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) NOT NULL,
+  `category` varchar(128) NOT NULL,
+  `register` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `tb_subcategories` (`id`, `title`, `category`, `register`) VALUES
+(1,	'Multi-room',	'Amplificadores',	'2021-02-16 20:31:29'),
+(2,	'Receiver',	'Amplificadores',	'2021-02-16 20:31:40'),
+(3,	'Pré-Amplificador',	'Amplificadores',	'2021-02-16 20:32:22'),
+(4,	'Extensor HDMI',	'Extensores',	'2021-02-16 20:34:31'),
+(5,	'Extensor HDBaseT',	'Extensores',	'2021-02-16 20:34:47'),
+(6,	'Matrix de Vídeo',	'Vídeo',	'2021-02-16 20:36:33'),
+(7,	'Switcher',	'Vídeo',	'2021-02-16 20:36:48'),
+(8,	'Extrator de Áudio',	'Audio Tools',	'2021-02-16 20:39:12'),
+(9,	'Extensor de Áudio',	'Extensores',	'2021-02-16 20:39:34'),
+(10,	'DAC',	'Audio Tools',	'2021-02-16 20:39:52'),
+(11,	'Switch',	'Rede',	'2021-02-16 20:40:15'),
+(12,	'Routeador',	'Rede',	'2021-02-16 20:40:27'),
+(13,	'Access Point',	'Rede',	'2021-02-16 20:40:42'),
+(14,	'Módulo Relé',	'Iluminação',	'2021-02-16 21:03:20'),
+(15,	'Host',	'Host',	'2021-02-16 21:04:15'),
+(16,	'Outdoor',	'Caixas Acústica',	'2021-02-16 21:10:07'),
+(17,	'In-Celing',	'Caixas Acústica',	'2021-02-16 21:10:17'),
+(18,	'In-Wall',	'Caixas Acústica',	'2021-02-16 21:10:26');
+
 DROP TABLE IF EXISTS `tb_users`;
 CREATE TABLE `tb_users` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -126,6 +180,6 @@ CREATE TABLE `tb_users` (
 
 INSERT INTO `tb_users` (`id`, `name`, `email`, `password`, `register`) VALUES
 (1,	'João Rangel',	'joao@hcode.com.br',	'123456',	'2018-04-17 18:57:44'),
-(2,	'Rogério Fabrício',	'rogerio@zafiro.com.br',	'zafiro327',	'2021-02-10 02:24:16');
+(2,	'Rogério Fabrício',	'rogerio@zafiro.com.br',	'123456',	'2021-02-16 15:14:18');
 
--- 2021-02-10 02:25:44
+-- 2021-02-16 21:13:50
