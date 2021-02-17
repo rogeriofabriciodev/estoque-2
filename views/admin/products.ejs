@@ -32,6 +32,7 @@
                   <th>Produto</th>
                   <th>Descrição</th>
                   <th>Categoria</th>
+                  <th>Sub-Categoria</th>
                   <th>Preço</th>
                   <th style="min-width: 134px;">Ações</th>
                 </tr>
@@ -42,8 +43,10 @@
                     <td><%= row.id %></td>
                     <td><img src="/<%= row.photo %>" alt="" style="height: 18px;"></td>
                     <td><%= row.name %></td>
-                    <td><%= row.description %></td>
+                    <td><%= row.brand %></td>
+                    <td><%= row.provider %></td>
                     <td><%= row.category %></td>
+                    <td><%= row.subcategory %></td>
                     <td>R$<%= row.price * row.profitMargin %></td>
                     <td><button type="button" class="btn btn-xs btn-info btn-info"><i
                       class="fa fa-plus-square"></i> Info</button>&nbsp;<button type="button" class="btn btn-xs btn-info btn-update"><i
@@ -87,19 +90,19 @@
               </div>
               <div class="form-group">
                 <label for="inputBrandCreate">Fabricante</label>
-                <select id="inputBrandCreate" name="brand" class="form-control"> 
+                <select id="inputBrandCreate" name="idBrand" class="form-control"> 
                   <option value=""> -- selecione -- </option>
                   <% dataBrand.forEach(rowBrand => { %>
-                  <option value="<%= rowBrand.name %>"><%= rowBrand.name %></option>
+                  <option value="<%= rowBrand.id %>"><%= rowBrand.name %></option>
                   <% }) %>
                 </select>
               </div> 
               <div class="form-group">
                 <label for="inputProviderCreate">Fornecedor</label>
-                <select id="inputProviderCreate" name="provider" class="form-control"> 
+                <select id="inputProviderCreate" name="idProvider" class="form-control"> 
                   <option value=""> -- selecione -- </option>
                   <% dataProvider.forEach(rowProvider => { %>
-                  <option value="<%= rowProvider.name %>"><%= rowProvider.name %></option>
+                  <option value="<%= rowProvider.id %>"><%= rowProvider.name %></option>
                   <% }) %>
                 </select>
               </div> 
@@ -113,19 +116,19 @@
               </div>
               <div class="form-group">
                 <label for="inputCategoryCreate">Categoria</label>
-                <select id="inputCategoryCreate" name="category" class="form-control"> 
+                <select id="inputCategoryCreate" name="idCategory" class="form-control"> 
                   <option value=""> -- selecione -- </option>
                   <% dataCategory.forEach(rowCategory => { %>
-                  <option value="<%= rowCategory.title %>"><%= rowCategory.title %></option>
+                  <option value="<%= rowCategory.id %>"><%= rowCategory.title %></option>
                   <% }) %>
                 </select>
               </div> 
               <div class="form-group">
                 <label for="inputSubCategoryCreate">Sub-Categoria</label>
-                <select id="inputSubCategoryCreate" name="subCategory" class="form-control"> 
+                <select id="inputSubCategoryCreate" name="idSubCategory" class="form-control"> 
                   <option value=""> -- selecione -- </option>
                   <% dataSubcategory.forEach(rowSubcategory => { %>
-                  <option value="<%= rowSubcategory.title %>"><%= rowSubcategory.title %></option>
+                  <option value="<%= rowSubcategory.id %>"><%= rowSubcategory.title %></option>
                   <% }) %>
                 </select>
               </div> 
@@ -176,17 +179,22 @@
                 <input type="text" class="form-control" id="inputProductCodeUpdate" name="productCode">
               </div>
               <div class="form-group">
-                <label for="inputBrandCreate">Fabricante</label>
-                <select id="inputBrandCreate" name="brand" class="form-control"> 
+                <label for="inputBrandUpdate">Fabricante</label>
+                <select id="inputBrandUpdate" name="idBrand" class="form-control"> 
                   <option value=""> -- selecione -- </option>
                   <% dataBrand.forEach(rowBrand => { %>
-                  <option value="<%= rowBrand.name %>"><%= rowBrand.name %></option>
+                  <option value="<%= rowBrand.id %>"><%= rowBrand.name %></option>
                   <% }) %>
                 </select>
               </div> 
               <div class="form-group">
                 <label for="inputProviderUpdate">Fornecedor</label>
-                <input type="text" class="form-control" id="inputProviderUpdate" name="provider">
+                <select id="inputProviderUpdate" name="idProvider" class="form-control"> 
+                  <option value=""> -- selecione -- </option>
+                  <% dataProvider.forEach(rowProvider => { %>
+                  <option value="<%= rowProvider.id %>"><%= rowProvider.name %></option>
+                  <% }) %>
+                </select>
               </div>
               <div class="form-group">
                 <label for="inputDescriptionUpdate">Descrição</label>
@@ -198,11 +206,21 @@
               </div>
               <div class="form-group">
                 <label for="inputCategoryUpdate">Categoria</label>
-                <input type="text" class="form-control" id="inputCategoryUpdate" name="category">
-              </div>
+                <select id="inputCategoryUpdate" name="idCategory" class="form-control"> 
+                  <option value=""> -- selecione -- </option>
+                  <% dataCategory.forEach(rowCategory => { %>
+                  <option value="<%= rowCategory.id %>"><%= rowCategory.title %></option>
+                  <% }) %>
+                </select>
+              </div> 
               <div class="form-group">
                 <label for="inputSubCategoryUpdate">Sub-Categoria</label>
-                <input type="text" class="form-control" id="inputSubCategoryUpdate" name="subCategory">
+                <select id="inputSubCategoryUpdate" name="idSubCategory" class="form-control"> 
+                  <option value=""> -- selecione -- </option>
+                  <% dataSubcategory.forEach(rowSubcategory => { %>
+                  <option value="<%= rowSubcategory.id %>"><%= rowSubcategory.title %></option>
+                  <% }) %>
+                </select>
               </div>
               <!-- <%- include('inc/selectCategories'); -%> -->
               <!-- <div class="form-group">

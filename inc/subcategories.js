@@ -27,7 +27,7 @@ module.exports = {
 
       let query, params = [
         fields.title,
-        fields.category
+        fields.idCategory
       ];
       console.log("aqui: ", fields.category);
       if (parseInt(fields.id) > 0 ) {
