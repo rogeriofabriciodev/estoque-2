@@ -5,8 +5,10 @@ module.exports = {
   getSubcategories(){
     return new Promise((resolve, reject) => {
 
-      conn.query(`
-        SELECT * FROM tb_subcategories ORDER BY category
+        conn.query(`
+          SELECT tb_subcategories.id, tb_subcategories.title, tb_categories.title as category
+          FROM tb_subcategories INNER JOIN tb_categories 
+          ON (tb_categories.id = tb_subcategories.id_category)
         `, (err, results) => {
           if (err) {
             reject(err);
@@ -14,6 +16,7 @@ module.exports = {
             resolve(results);
           }
       });
+
     });
   },
 
@@ -24,7 +27,7 @@ module.exports = {
 
       let query, params = [
         fields.title,
-        fields.category
+        fields.idCategory
       ];
       console.log("aqui: ", fields.category);
       if (parseInt(fields.id) > 0 ) {
@@ -33,7 +36,7 @@ module.exports = {
           UPDATE tb_subcategories
           SET
             title = ?,
-            category = ?
+            id_category = ?
           WHERE id = ?
         `;
         params.push(fields.id);
@@ -41,7 +44,7 @@ module.exports = {
       } else {
 
         query = `
-          INSERT INTO tb_subcategories (title, category)
+          INSERT INTO tb_subcategories (title, id_category)
           VALUES(?, ?)
           `; 
       }

@@ -7,7 +7,11 @@ module.exports = {
     return new Promise((resolve, reject) => {
 
       conn.query(`
-        SELECT * FROM tb_products ORDER BY name
+        SELECT tb_products.id, tb_products.name, tb_products.model, tb_products.productCode, tb_brands.name as brand, tb_providers.name as provider, tb_products.description, tb_products.profitMargin, tb_categories.title as category, tb_subcategories.title as subcategory, tb_products.price, tb_products.photo FROM tb_products
+        INNER JOIN tb_brands ON tb_brands.id = tb_products.id_brand
+        INNER JOIN tb_providers ON tb_providers.id = tb_products.id_provider
+        INNER JOIN tb_categories ON tb_categories.id = tb_products.id_category
+        INNER JOIN tb_subcategories ON tb_subcategories.id = tb_products.id_sub_category
         `, (err, results) => {
           if (err) {
             reject(err);
@@ -29,12 +33,12 @@ module.exports = {
         fields.name,
         fields.model,
         fields.productCode,
-        fields.brand,
-        fields.provider,
+        fields.idBrand,
+        fields.idProvider,
         fields.description,
         fields.profitMargin,
-        fields.category,
-        fields.subCategory,
+        fields.idCategory,
+        fields.idSubCategory,
         fields.price
       ];
 
@@ -55,12 +59,12 @@ module.exports = {
           SET name = ?,
               model = ?,
               productCode = ?,
-              brand = ?,
-              provider = ?,
+              id_brand = ?,
+              id_provider = ?,
               description = ?,
               profitMargin = ?,
-              category = ?,
-              subCategory = ?,
+              id_category = ?,
+              id_sub_category = ?,
               price = ?
               ${queryPhoto}
           WHERE id = ?
@@ -73,7 +77,7 @@ module.exports = {
         }
 
         query = `
-          INSERT INTO tb_products(name, model, productCode, brand, provider, description, profitMargin, category, subCategory, price, photo)
+          INSERT INTO tb_products(name, model, productCode, id_brand, id_provider, description, profitMargin, id_category, id_sub_category, price, photo)
           VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `;
 
