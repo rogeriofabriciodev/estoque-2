@@ -131,8 +131,7 @@
                   <option value="<%= rowSubcategory.id %>"><%= rowSubcategory.title %></option>
                   <% }) %>
                 </select>
-              </div> 
-              <!-- <%- include('inc/selectCategories'); -%> -->
+              </div>
               <div class="form-group">
                 <label for="inputPriceCreate">Preço</label>
                 <input type="number" class="form-control" id="inputPriceCreate" name="price">
@@ -215,21 +214,13 @@
               </div> 
               <div class="form-group">
                 <label for="inputSubCategoryUpdate">Sub-Categoria</label>
-                <select id="inputSubCategoryUpdate" name="idSubCategory" class="form-control"> 
+                <select id="inputSubCategoryUpdate" name="idSubCategory" class="form-control">
                   <option value=""> -- selecione -- </option>
                   <% dataSubcategory.forEach(rowSubcategory => { %>
                   <option value="<%= rowSubcategory.id %>"><%= rowSubcategory.title %></option>
                   <% }) %>
                 </select>
               </div>
-              <!-- <%- include('inc/selectCategories'); -%> -->
-              <!-- <div class="form-group">
-                <label for="inputCategoryCreate">Categoria</label>
-                <select id="inputCategoryCreate" name="category" class="form-control"> 
-                  <option value=""> -- selecione -- </option>
-                  <option value="Receiver">Receiver</option>
-                </select>
-              </div> -->
               <div class="form-group">
                 <label for="inputPriceUpdate">Preço</label>
                 <input type="number" class="form-control" id="inputPriceUpdate" name="price">
