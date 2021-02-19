@@ -12,6 +12,7 @@ var reservations = require('./../inc/reservations');
 var emails = require('./../inc/emails');
 var invoice_entry = require('./../inc/invoice-entry');
 var moment = require('moment');
+const invoiceEntry = require("./../inc/invoice-entry");
 var router = express.Router();
 
 moment.locale("pt-BR");
@@ -583,6 +584,37 @@ router.get("/invoice-entry", function(req, res, next){
       });
 
     });
+
+  });
+
+});
+
+
+router.post("/invoice-entry", function(req, res, next){
+
+  invoice_entry.save(req.fields, req.files).then(results => {
+
+    res.send(results);
+
+  }).catch(err => {
+
+    res.send(err);
+
+  });
+
+});
+
+
+
+router.delete("/invoice-entry/:id", function(req, res, next) {
+
+  invoice_entry.delete(req.params.id).then(results => {
+
+    res.send(results);
+
+  }).catch(err => {
+
+    res.send(err);
 
   });
 

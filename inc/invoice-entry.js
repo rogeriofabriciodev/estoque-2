@@ -19,98 +19,90 @@ module.exports = {
     });
   },
 
-  // save(fields, files) {
+  save(fields, files) {
 
-  //   return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
 
-  //     fields.photo = `images/${path.parse(files.photo.path).base}`;
+      fields.photo = `images/${path.parse(files.photo.path).base}`;
 
-  //     let query, queryPhoto = '', params = [
-  //       fields.name,
-  //       fields.model,
-  //       fields.productCode,
-  //       fields.idBrand,
-  //       fields.idProvider,
-  //       fields.description,
-  //       fields.profitMargin,
-  //       fields.idCategory,
-  //       fields.idSubCategory,
-  //       fields.price
-  //     ];
+      let query, queryPhoto = '', params = [
+        fields.origin,
+        fields.issuanceDate,
+        fields.idProvider,
+        fields.idProduct,
+        fields.quantity,
+        fields.price
+      ];
 
-  //     if (files.photo.name) {
+      if (files.photo.name) {
 
-  //       queryPhoto = ',photo = ?';
+        queryPhoto = ',photo = ?';
 
-  //       params.push(fields.photo);
+        params.push(fields.photo);
 
-  //     }
+      }
 
-  //     if (parseInt(fields.id) > 0) {
+      if (parseInt(fields.id) > 0) {
 
-  //       params.push(fields.id);
+        params.push(fields.id);
 
-  //       query = `
-  //         UPDATE tb_products
-  //         SET name = ?,
-  //             model = ?,
-  //             productCode = ?,
-  //             id_brand = ?,
-  //             id_provider = ?,
-  //             description = ?,
-  //             profitMargin = ?,
-  //             id_category = ?,
-  //             id_sub_category = ?,
-  //             price = ?
-  //             ${queryPhoto}
-  //         WHERE id = ?
-  //       `;
+        query = `
+          UPDATE tb_invoice_entry
+          SET origin = ?,
+              issuance_date = ?,
+              id_provider = ?,
+              id_product = ?,
+              quantity = ?,
+              price = ?
+              ${queryPhoto}
+          WHERE id = ?
+        `;
 
-  //     } else {
+      } else {
 
-  //       if (!files.photo.name) {
-  //         reject('Envie a foto do produto.');
-  //       }
+        if (!files.photo.name) {
+          reject('Envie a foto do produto.');
+        }
 
-  //       query = `
-  //         INSERT INTO tb_products(name, model, productCode, id_brand, id_provider, description, profitMargin, id_category, id_sub_category, price, photo)
-  //         VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-  //       `;
+        query = `
+          INSERT INTO tb_invoice_entry(origin, issuance_date, id_provider, id_product, quantity, price, photo)
+          VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `;
 
-  //     }
+      }
 
-  //     conn.query(query, params, (err, results) => {
+      conn.query(query, params, (err, results) => {
         
-  //       if (err) {
-  //         reject(err);
-  //       } else {
-  //         resolve(results);
-  //       }
-  //     });
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
+      });
 
-  //   });
+    });
 
-  // },
+  },
 
-  // delete(id) {
+  delete(id) {
 
-  //   return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
 
-  //     conn.query(`
-  //       DELETE FROM tb_products WHERE id = ? 
-  //     `, [
-  //       id
-  //     ], (err, results) => {
+      conn.query(`
+        DELETE FROM tb_invoice_entry WHERE id = ? 
+      `, [
+        id
+      ], (err, results) => {
 
-  //       if (err) {
-  //         reject(err);
-  //       } else {
-  //         resolve(results);
-  //       }
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
 
-  //     });
+      });
 
-  //   });
-  // }
+    });
+  }
 
 };
