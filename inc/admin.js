@@ -51,6 +51,12 @@ module.exports = {
         active: false
       },
       {
+        text: "Entrada de NF",
+        href: "/admin/invoice-entry",
+        icon: "codepen",
+        active: false
+      },
+      {
         text: "Produtos",
         href: "/admin/products",
         icon: "codepen",

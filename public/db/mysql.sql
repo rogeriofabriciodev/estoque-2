@@ -216,6 +216,27 @@ INSERT INTO `tb_users` VALUES (1,'João Rangel','joao@hcode.com.br','123456','20
 /*!40000 ALTER TABLE `tb_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+--
+-- Dumping data for table `tb_invoice_entry`
+--
+
+DROP TABLE IF EXISTS `tb_invoice_entry`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tb_invoice_entry` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `origin` varchar(256) NOT NULL,
+  `issuance_date` varchar(256) NOT NULL,
+  `id_provider` varchar(256) NOT NULL,
+  `id_product` varchar(256) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `register` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
 -- Dumping events for database 'saboroso'
 --

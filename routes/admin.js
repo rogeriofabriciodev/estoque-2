@@ -10,6 +10,7 @@ var brands = require('./../inc/brands');
 var providers = require('./../inc/providers');
 var reservations = require('./../inc/reservations');
 var emails = require('./../inc/emails');
+var invoice_entry = require('./../inc/invoice-entry');
 var moment = require('moment');
 var router = express.Router();
 
@@ -562,6 +563,29 @@ router.delete("/users/:id", function(req, res, next){
 
   });
   
+});
+
+
+router.get("/invoice-entry", function(req, res, next){
+
+  providers.getProviders().then(dataProvider => {
+
+    products.getProducts().then(dataProduct => {
+
+      invoice_entry.getInvoice().then(data => {
+
+        res.render("admin/invoice-entry", admin.getParams(req, {
+          dataProvider,
+          dataProduct,
+          data
+        }));
+
+      });
+
+    });
+
+  });
+
 });
 
 
