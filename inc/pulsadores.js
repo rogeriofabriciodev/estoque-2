@@ -63,16 +63,20 @@ module.exports = {
 
       let query, params = [
         fields.name,
-        fields.tecla1,
-        fields.tecla2,
-        fields.tecla3,
-        fields.tecla4,
-        fields.tecla5,
-        fields.tecla6,
-        fields.url_photo,
+        fields.qtButtons,
+        fields.colorButtons,
+        fields.button1,
+        fields.button2,
+        fields.button3,
+        fields.button4,
+        fields.button5,
+        fields.button6,
       ];
 
-      if (parseInt(fields.id) > 0 ) {
+      let urlPhoto = `aql-` + fields.qtButtons + `-` + fields.colorButtons;
+      params.push(urlPhoto);
+
+      if (parseInt(fields.urlPhoto) > 0 ) {
 
         query = `
           UPDATE tb_pulsador
@@ -85,8 +89,8 @@ module.exports = {
       } else {
 
         query = `
-          INSERT INTO tb_pulsador (name, tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, url_photo)
-          VALUES(?,?,?,?,?,?,?,?)
+          INSERT INTO tb_pulsador (name, qtButtons, colorButtons, button1, button2, button3, button4, button5, button6, urlPhoto)
+          VALUES(?,?,?,?,?,?,?,?,?,?)
           `; 
       }
       
