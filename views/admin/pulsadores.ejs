@@ -105,7 +105,30 @@
               <div class="form-group">
                 <label for="inputNameCreate">Ambiente</label>
                 <input type="text" class="form-control" id="inputNameCreate" name="name">
-              </div> 
+              </div>
+              <div class="form-group">
+                <label for="inputQtButtonsCreate">Pulsador</label>
+                <select id="inputQtButtonsCreate" name="qtButtons" class="form-control"> 
+                  <option value=""> -- selecione -- </option>
+                  <option value="1"> 1 Tecla </option>
+                  <option value="3"> 3 Teclas </option>
+                  <option value="6"> 6 Teclas </option>
+                  <!-- <% dataBrand.forEach(rowBrand => { %>
+                  <option value="<%= rowBrand.id %>"><%= rowBrand.name %></option>
+                  <% }) %> -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputColorButtonsCreate">Cor</label>
+                <select id="inputColorButtonsCreate" name="colorButtons" class="form-control"> 
+                  <option value=""> -- selecione -- </option>
+                  <option value="branco"> Branco </option>
+                  <option value="preto"> Preto </option>
+                  <!-- <% dataBrand.forEach(rowBrand => { %>
+                  <option value="<%= rowBrand.id %>"><%= rowBrand.name %></option>
+                  <% }) %> -->
+                </select>
+              </div>  
               <div class="form-group">
                 <label for="inputTecla1Create">Tecla 1</label>
                 <input type="text" class="form-control" id="inputTecla1Create" name="tecla1">
