@@ -6,7 +6,7 @@ class Pagination {
   constructor(
     query,
     params = [],
-    itensPerPage = 10
+    itensPerPage = 8
   ){
     this.query = query;
     this.params = params;

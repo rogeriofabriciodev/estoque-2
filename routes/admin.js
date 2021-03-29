@@ -13,6 +13,7 @@ var emails = require('./../inc/emails');
 var invoice_entry = require('./../inc/invoice-entry');
 var moment = require('moment');
 const invoiceEntry = require("./../inc/invoice-entry");
+const pulsadores = require("./../inc/pulsadores");
 var router = express.Router();
 
 moment.locale("pt-BR");
@@ -609,6 +610,44 @@ router.post("/invoice-entry", function(req, res, next){
 router.delete("/invoice-entry/:id", function(req, res, next) {
 
   invoice_entry.delete(req.params.id).then(results => {
+
+    res.send(results);
+
+  }).catch(err => {
+
+    res.send(err);
+
+  });
+
+});
+
+
+
+router.get("/pulsadores", function(req, res, next){
+
+  let start = (req.query.start) ? req.query.start : moment().subtract(1, "year").format("YYY-MM-DD");
+  let end = (req.query.end) ? req.query.end : moment().format("YYY-MM-DD");
+
+  pulsadores.getPulsadores(req).then(pag => {
+
+    res.render("admin/pulsadores", admin.getParams(req, {
+      date: {
+        start,
+        end
+      },
+      data: pag.data,
+      moment,
+      links: pag.links
+    }));
+
+  });
+  
+});
+
+
+router.post("/pulsadores", function(req, res, next){
+
+  pulsadores.save(req.fields, req.files).then(results => {
 
     res.send(results);
 

@@ -1,0 +1,192 @@
+<%- include('inc/header'); -%>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Pulsadores
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+          <li class="active">Pulsadores</li>
+        </ol>
+      </section>
+
+      <!-- Main content -->
+      <section class="content container-fluid">
+        <div class="box">
+          <div class="box-header">
+            <a href="#" class="btn btn-xs pull-right btn-success" data-toggle="modal" data-target="#modal-create"><i
+                class="fa fa-plus"></i>
+              Novo</a>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body no-padding">
+            <div style="padding:10px">
+            </div>
+              <% data.forEach(row => { %>
+                <div class="card col-xs-3" style="margin-bottom: 40px;" data-row="<%= JSON.stringify(row) %>" >
+                  <img class="card-img-top" src="/images/pulsadores/<%= row.url_photo %>"
+                    alt="MD Logo"
+                    style="
+                      width: 80px; 
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                      margin-bottom: 20px;
+                      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                    "
+                />
+                  <div class="card-body bg-gray text-center" style="font-family: 'Roboto', sans-serif; font-size: 20px; padding: 5px 0;"><button type="button" class="btn btn-xs btn-info btn-update" ><%= row.name %></button></div> 
+                  <div class="card-footer bg-blue">
+                    <div class="box-body no-padding">
+                      <table class="table ">
+                        <tbody>
+                          <tr>
+                            <td class="text-right">Tecla 1</td>
+                            <td><%= row.tecla1 %></td>
+                          </tr>
+                          <tr>
+                            <td class="text-right">Tecla 2</td>
+                            <td><%= row.tecla2 %></td>
+                          </tr>
+                          <tr>
+                            <td class="text-right">Tecla 3</td>
+                            <td><%= row.tecla3 %></td>
+                          </tr>
+                          <tr>
+                            <td class="text-right">Tecla 4</td>
+                            <td><%= row.tecla4 %></td>
+                          </tr>
+                          <tr>
+                            <td class="text-right">Tecla 5</td>
+                            <td><%= row.tecla5 %></td>
+                          </tr>
+                          <tr>
+                            <td class="text-right">Tecla 6</td>
+                            <td><%= row.tecla6 %></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              <% }) %>
+            <!-- /.col -->
+            
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer clearfix">
+            <ul class="pagination pagination-sm no-margin pull-right">
+              <% links.forEach(link => { %>
+              <li <% if ( link.active) { %> class="active"<% } %>><a href="<%= link.href %>"><%= link.text %></a></li>
+              <% }); %>
+            </ul>
+          </div>
+          <!-- /.box-footer -->
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div class="modal fade" id="modal-create">
+      <div class="modal-dialog">
+        <div class="modal-content" style="border-top: 3px solid #00a65a;">
+          <form method="post">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title">Nova Pulsador</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="inputNameCreate">Ambiente</label>
+                <input type="text" class="form-control" id="inputNameCreate" name="name">
+              </div>
+              <div class="form-group">
+                <label for="inputTecla1Create">Tecla 1</label>
+                <input type="text" class="form-control" id="inputTecla1Create" name="tecla1">
+              </div>
+              <div class="form-group">
+                <label for="inputTecla2Create">Tecla 2</label>
+                <input type="text" class="form-control" id="inputTecla2Create" name="tecla2">
+              </div>
+              <div class="form-group">
+                <label for="inputTecla3Create">Tecla 3</label>
+                <input type="text" class="form-control" id="inputTecla3Create" name="tecla3">
+              </div>
+              <div class="form-group">
+                <label for="inputTecla4Create">Tecla 4</label>
+                <input type="text" class="form-control" id="inputTecla4Create" name="tecla4">
+              </div>
+              <div class="form-group">
+                <label for="inputTecla5Create">Tecla 5</label>
+                <input type="text" class="form-control" id="inputTecla5Create" name="tecla5">
+              </div>
+              <div class="form-group">
+                <label for="inputTecla6Create">Tecla 6</label>
+                <input type="text" class="form-control" id="inputTecla6Create" name="tecla6">
+              </div>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Salvar</button>
+            </div>
+          </form>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="modal-update">
+      <div class="modal-dialog">
+        <div class="modal-content" style="border-top: 3px solid #00c0ef;">
+          <form method="post">
+            <input type="hidden" name="id">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title">Editar Marca</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="inputNameUpdate">Nome</label>
+                <input type="text" class="form-control" id="inputNameUpdate" name="name">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-info">Salvar</button>
+            </div>
+          </form>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+
+<%- include('inc/footer'); -%>
+
+<script src="/js/hcode-formsave.js"></script>
+<script src="/js/hcode-grid.js"></script>
+
+<script>
+
+new HcodeGrid({
+
+  deleteUrl: '/admin/brands/${data.id}',
+  deleteMsg: 'Você esta preste a apagar este registro ${data.name}.',
+  onUpdateLoad: (form, name, data) => {
+
+    let input = form.querySelector(`[name=${name}]`);
+    if (input) input.value = data[name];
+  }
+});
+
+</script>

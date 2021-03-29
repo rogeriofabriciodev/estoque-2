@@ -98,12 +98,12 @@ module.exports = {
         icon: "users",
         active: false
       },
-      // {
-      //   text: "E-mails",
-      //   href: "/admin/emails",
-      //   icon: "envelope",
-      //   active: false
-      // }
+      {
+        text: "Pulsadores",
+        href: "/admin/pulsadores",
+        icon: "envelope",
+        active: false
+      }
     ];
 
     menus.map(menu => {
