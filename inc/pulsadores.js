@@ -69,6 +69,7 @@ module.exports = {
         fields.tecla4,
         fields.tecla5,
         fields.tecla6,
+        fields.url_photo,
       ];
 
       if (parseInt(fields.id) > 0 ) {
@@ -84,8 +85,8 @@ module.exports = {
       } else {
 
         query = `
-          INSERT INTO tb_pulsador (name, tecla1, tecla2, tecla3, tecla4, tecla5, tecla6)
-          VALUES(?,?,?,?,?,?,?)
+          INSERT INTO tb_pulsador (name, tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, url_photo)
+          VALUES(?,?,?,?,?,?,?,?)
           `; 
       }
       
@@ -93,8 +94,10 @@ module.exports = {
 
         if (err) {
           reject(err);
+          console.log("error ", err)
         } else {
           resolve(results);
+          console.log("OK ", results)
         }
 
       });

@@ -244,8 +244,15 @@ DROP TABLE IF EXISTS `tb_pulsador`;
 CREATE TABLE `tb_pulsador` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(256) NOT NULL,
-  `keys` varchar(256) NOT NULL,
+  `key` varchar(256) NOT NULL,
   `color` varchar(256) NOT NULL,
+  `ambiente` varchar(256) NOT NULL,
+  `tecla1` varchar(256) NOT NULL,
+  `tecla2` varchar(256) NOT NULL,
+  `tecla3` varchar(256) NOT NULL,
+  `tecla4` varchar(256) NOT NULL,
+  `tecla5` varchar(256) NOT NULL,
+  `tecla6` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
