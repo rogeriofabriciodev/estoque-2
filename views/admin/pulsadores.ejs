@@ -26,8 +26,8 @@
             <div style="padding:10px">
             </div>
               <% data.forEach(row => { %>
-                <div class="card col-xs-3" style="margin-bottom: 40px;" data-row="<%= JSON.stringify(row) %>" >
-                  <img class="card-img-top" src="/images/pulsadores/<%= row.url_photo %>"
+                <div class="card col-xs-2" style="margin-bottom: 40px;" data-row="<%= JSON.stringify(row) %>" >
+                  <img class="card-img-top" src="/images/pulsadores/<%= row.url_photo %>.png"
                     alt="MD Logo"
                     style="
                       width: 80px; 
@@ -38,7 +38,11 @@
                       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                     "
                 />
-                  <div class="card-body bg-gray text-center" style="font-family: 'Roboto', sans-serif; font-size: 20px; padding: 5px 0;"><button type="button" class="btn btn-xs btn-info btn-update" ><%= row.name %></button></div> 
+                  <div class="card-body bg-gray text-center" style="font-family: 'Roboto', sans-serif; font-size: 16px; padding: 5px 0;">
+                    <!-- <button type="button" class="btn btn-xs btn-info btn-update" > -->
+                      <%= row.name %>
+                    <!-- </button> -->
+                  </div> 
                   <div class="card-footer bg-blue">
                     <div class="box-body no-padding">
                       <table class="table ">
@@ -94,7 +98,7 @@
     <div class="modal fade" id="modal-create">
       <div class="modal-dialog">
         <div class="modal-content" style="border-top: 3px solid #00a65a;">
-          <form method="post">
+          <form method="POST">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -102,6 +106,10 @@
               <h4 class="modal-title">Nova Pulsador</h4>
             </div>
             <div class="modal-body">
+              <div class="form-group">
+                <!-- <label for="inputNameCreate">Ambiente</label> -->
+                <input type="hidden" class="form-control" id="inputPhotoCreate" name="url_photo" value="aql-l3-wh">
+              </div>
               <div class="form-group">
                 <label for="inputNameCreate">Ambiente</label>
                 <input type="text" class="form-control" id="inputNameCreate" name="name">
